@@ -1,0 +1,8 @@
+h1. Read-It-Later for Mozilla Ubiquity
+
+|*By:*||Mike Green <"mike.is.green@gmail.com":mailto:mike.is.green@gmail.com>|
+|*License:*||GNU General Public License|
+|*URL:*||"http://www.astronautcrossing.com":http://www.astronautcrossing.com|
+
+h2. About Read-It-Later
+
