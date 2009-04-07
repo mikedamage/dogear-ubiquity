@@ -18,11 +18,14 @@ CmdUtils.CreateCommand({
 		var list = this._getListJSON();
 		var itemTemplate = "<li>${title}<br/><img src=\"${snapshot}\" /><br/>${url}</li>";
 		pblock.innerHTML = "<strong>DogEar List:</strong>\n<ol>\n";
-		jQuery.each(list, function(index, item) {
-			pblock.innerHTML += CmdUtils.renderTemplate(itemTemplate, item);
-		});
+		for (i=0; i < list.length; i++) {
+			pblock.innerHTML += CmdUtils.renderTemplate(itemTemplate, {title: list[i].title, url: list[i].url, snapshot: list[i].snapshot});
+		}
 	},
 	execute: function(input) {
-		
+		var item = parseInt(input.text) - 1;
+		var list = this._getListJSON();
+		displayMessage(list[item].url);
+		//list.delete(item);
 	}
 });
