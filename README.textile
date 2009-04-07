@@ -1,8 +1,10 @@
-h1. Read-It-Later for Mozilla Ubiquity
+h1. DogEar for Mozilla Ubiquity
 
 |*By:*||Mike Green <"mike.is.green@gmail.com":mailto:mike.is.green@gmail.com>|
 |*License:*||GNU General Public License|
 |*URL:*||"http://www.astronautcrossing.com":http://www.astronautcrossing.com|
 
-h2. About Read-It-Later
+h2. About DogEar
+
+*DogEar* is a set of commands for "Mozilla Ubiquity":http://ubiquity.mozilla.org that keeps a list of web pages you want to read later (a-la the "Read It Later" Firefox extension). It uses Mozilla's FUEL library to store a JSON object in Firefox's preferences with the names, URLs, and thumbnail images (coming soon) of pages you want to stash away for later reading without having to bookmark.
 
