@@ -6,19 +6,20 @@ CmdUtils.CreateCommand({
 		homepage: "http://www.astronautcrossing.com"
 	},
 	description: "Adds the current page to a 'read it later' list that you can access with 'dogear.list'",
+	_preferenceKey: "extensions.ubiquity.dogear.pageList",
 	_listExists: function() {
-		return Application.prefs.has("ubiquity.dogear.pageList");
+		return Application.prefs.has(this._preferenceKey);
 	},
 	_getListJSON: function() {
-		return Utils.decodeJson(Application.prefs.get("ubiquity.dogear.pageList"));
+		return Utils.decodeJson(Application.prefs.get(this._preferenceKey).value);
 	},
 	preview: function(pblock) {
 		var thisWindow = CmdUtils.getWindow();
 		var snapshot = CmdUtils.getWindowSnapshot(thisWindow);
-		var previewTemplate = "<strong>Title:</strong> $title<br/>";
-		previewTemplate += "<strong>URL:</strong> $url<br/>";
-		previewTemplate += "<strong>Snapshot:</strong> <img src=\"$snapshot\" /><br/>";
-		pblock.innerHTML = CmdUtils.renderTemplate(previewTemplate, {title: thisWindow.title, url: thisWindow.location.href, snapshot: snapshot});
+		var previewTemplate = "<strong>Title:</strong> ${title}<br/>";
+		previewTemplate += "<strong>URL:</strong> ${url}<br/>";
+		previewTemplate += "<strong>Snapshot:</strong> <img src=\"${snapshot}\" /><br/>";
+		pblock.innerHTML = CmdUtils.renderTemplate(previewTemplate, {title: thisWindow.document.title, url: thisWindow.location.href, snapshot: snapshot});
 	},
 	execute: function() {
 		var thisWindow = CmdUtils.getWindow();
@@ -35,6 +36,6 @@ CmdUtils.CreateCommand({
 		} else {
 			var list = [newListItem];
 		}
-		Application.prefs.setValue("ubiquity.dogear.pageList", Utils.encodeJson(list));
+		Application.prefs.setValue(this._preferenceKey, Utils.encodeJson(list));
 	}
 });
