@@ -5,7 +5,7 @@ CmdUtils.CreateCommand({
 		email: "mike.is.green@gmail.com",
 		homepage: "http://www.astronautcrossing.com"
 	},
-	description: "Adds the current page to a 'read it later' list that you can access with 'dogear.list'",
+	description: "Adds the current page to a 'read it later' list that you can access with 'dogear.list', 'dogear.pop', and 'dogear.shift'.",
 	_preferenceKey: "extensions.ubiquity.dogear.pageList",
 	_listExists: function() {
 		return Application.prefs.has(this._preferenceKey);
@@ -25,7 +25,7 @@ CmdUtils.CreateCommand({
 		var thisWindow = CmdUtils.getWindow();
 		var snapshot = CmdUtils.getWindowSnapshot(thisWindow);
 		var newListItem = {
-			title: thisWindow.title,
+			title: thisWindow.document.title,
 			url: thisWindow.location.href,
 			snapshot: snapshot
 		};
